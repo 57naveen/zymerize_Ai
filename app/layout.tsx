@@ -3,6 +3,7 @@ import {Source_Sans_3 as FontSans_3} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/ui/common/Header";
 import Footer from "@/components/ui/common/Footer";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const fontSans = FontSans_3({
   variable: "--font-sans",
@@ -23,6 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
+      
+    
     <html lang="en">
       <body
         className={`${fontSans.variable} font-sans antialiased`}
@@ -39,5 +43,6 @@ export default function RootLayout({
         </div>
       </body>
     </html>
+    </ClerkProvider>
   );
 }
